@@ -18,14 +18,14 @@ def calculate_bet(bet):
 			return increase_proportion
 	return bet
 
-# Game score
+# Game settings and score
+BET = 10
 coins = 10
-bet = 10
 
 while coins > 0 and riddles:
 	riddle = riddles.pop()
 	print "You have %d coins." % coins
-	actual_bet = calculate_bet(bet)
+	actual_bet = calculate_bet(BET)
 
 	print "Riddle:"
 	print riddle[0]
