@@ -4,13 +4,14 @@ from random import randint
 
 print "Hello there! Let's play a game!"
 print "In fact, let's play a riddle game!"
-print "The rules are simple, we will tell you a riddle and you have to guess the answer. You will start with 50 coins and for each riddle you will have to make a 10 coins bet. If you guess correctly, you will receive double the money; ain't that awesome?! However if you lose, then you lose your money (don't worry, it's not real...). The game ends when you run out of money or decide to quit."
-print "We will help you by giving  you three possible answers from which you can pick the correct one. Let's see how much you can make!\n"
+print "The rules are simple, we will tell you a riddle and you have to guess the answer. Each time you answer correctly, you will win 10 coins! But if you get it wrong, you lose the same amount your money (don't worry, it's not real...). Every now and then you'll be prompted with the option of multiplying your bet up to 5 times. If you win, you earn more, but if you lose, you also lose more."
+print "The game ends when you run out of money, decide to quit, or we run out of riddles (we can't know them all). We will help you by giving  you three possible answers from which you can pick the correct one. Let's see how much you can make!\n"
 
-coins = 50
+coins = 0
 bet = 10
 
-for riddle in riddles:
+while coins >= 0 and riddles:
+	riddle = riddles.pop()
 	print "You have %d coins." % coins
 	print "Riddle:"
 	print riddle[0]
@@ -32,9 +33,6 @@ for riddle in riddles:
 	else:
 		print "Nope. The correct answer is", riddle[1]
 		coins -= actual_bet
-
-	if coins <= 0:
-		break
 	print ""
 
 if coins > 0:
