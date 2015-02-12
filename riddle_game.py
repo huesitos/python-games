@@ -7,6 +7,7 @@ print "The rules are simple, we will tell you a riddle and you have to guess the
 print "You start with 10 coins for the first bet. The game ends when you run out of money, decide to quit, or we run out of riddles (we can't know them all). We will help you by giving  you three possible answers from which you can pick the correct one. Let's see how much you can make!\n"
 
 # Helper methods
+# Randomly offers bonus money or just a normal bet
 def calculate_bet(bet):
 	offer_bonus = randint(0,100)
 	if offer_bonus % 10 == 0:
@@ -30,11 +31,13 @@ while coins > 0 and riddles:
 	print "Riddle:"
 	print riddle[0]
 
+	# Prints all possible answers
 	for pos, answer in zip(range(0, len(riddle[2])), riddle[2]):
-		print "%d. %s" % (pos+1, answer)
+		print "%d. %s" % (pos + 1, answer)
 
 	guess = raw_input("Answer (just the number): ")
 
+	# Compares if the chosen answer is the correct one
 	if riddle[2][int(guess)-1] == riddle[1]:
 		print "Correct! You win %d coins!\n" % actual_bet
 		coins += actual_bet
