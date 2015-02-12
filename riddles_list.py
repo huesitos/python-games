@@ -22,7 +22,8 @@ riddles = [
 		("""I'm easy to catch, but hard to take away\nTry not to hold me, or it's you that will pay\nI'm the great enemy of candles\nAnd to dragons an ally\nBut go long without me, and you're sure to die\nWhat am I?""", "Breath", ["Oxigen", "Breath", "", ""]), 
 		("Unlike you, with food we do not deal. But, we are able to make a light meal. What are we?", "Plants", ["Plants", "Cookbook", "Easybake ovens", ""]), 
 		("How many feet does a shepherd, 70 sheep and his dog have?", "2 feet", ["6 feet", "286 feet", "76 feet", "2 feet"]), 
-		("If you say my name, I no longer exist. What am I?", "Silence", ["A ghost", "A lie", "Silence", ""]), 
+		("If you say my name, I no longer exist. What am I?", "Silence", ["A ghost", "A lie", "Silence", ""]),  
+		("Who makes it, has no need of it. Who buys it, has no use for it. Who uses it can neither see nor feel it.", "A coffin", ["A coffin", "", "", ""]), 
 		("Three eyes I have, all in a row; when the red one opens, all freeze. What am I?", "Traffic light", ["Traffic light", "", "", ""]), 
 		("What do you use to \"hoe a row, slay a foe, and wring with woe\"?", "Your hands", ["A sword", "A juicer", "A hoe", "Your hands"])
 	]
