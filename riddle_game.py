@@ -29,10 +29,13 @@ while coins > 0 and riddles:
 
 	print "Riddle:"
 	print riddle[0]
-	# make it multiple choices...
-	guess = raw_input("Answer: ")
 
-	if guess == riddle[1]:
+	for pos, answer in zip(range(0, len(riddle[2])), riddle[2]):
+		print "%d. %s" % (pos+1, answer)
+
+	guess = raw_input("Answer (just the number): ")
+
+	if riddle[2][int(guess)-1] == riddle[1]:
 		print "Correct! You win %d coins!\n" % actual_bet
 		coins += actual_bet
 	else:
@@ -40,7 +43,7 @@ while coins > 0 and riddles:
 		coins -= actual_bet
 
 if coins > 0:
-	print "That's as much riddles as I know! You won %d coins, you are rich now!" % coins
+	print "That's as many riddles as I know! You won %d coins, you are rich now!" % coins
 elif coins < 0:
 	print "You not only lost all your money, now you owe me %d!" % coins
 else:
