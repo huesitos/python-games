@@ -1,25 +1,27 @@
-class Attraction(object):
+class Attraction(Place):
 	"""An Attraction is a game which the player can participate in and win money."""
 	def __init__(self, name, greeting, farewell):
-		super(Attraction, self).__init__()
-		self.name = name
-		self.greeting = greeting
-		self.farewell = farewell
+		super(Attraction, self).__init__(name, greeting, farewell)
 
-	def greeting(self):
-		print "\"Welcome to %s!\"" % self.name
-		print self.greeting
+	def enter(self):
+		super()
+		self.game()
 
-	def farewell(self):
-		print "\"Hope to see you soon at %s!\"" % self.name
-		self.farewell
+	def game(self):
+		print "Not implemented"
 
-class RiddleGame(Attraction):
-	"""docstring for RiddleGame"""
+class Riddles(Attraction):
+	"""docstring for Riddles"""
 	def __init__(self, name, greeting, farewell):
-		super(RiddleGame, self).__init__(name, greeting, farewell)
+		super(Riddles, self).__init__(name, greeting, farewell)
+
+	def game(self):
+		pass
 		
 class GuessNumber(Attraction):
 	"""docstring for GuessNumberAttraction"""
 	def __init__(self, name, greeting, farewell):
 		super(GuessNumber, self).__init__(name, greeting, farewell)
+
+	def game(self):
+		pass
