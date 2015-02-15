@@ -1,6 +1,11 @@
 import random
 
-print "Hello there! Let's play a game!"
+print "What's your name?"
+
+name = raw_input("> ");
+
+print "Hello", name
+print "Let's play a game!"
 print "In fact, let's play 'Guess the secret number'!"
 print "The rules are simple, you just have to try to guess the secret number! You have a limited amount of tries."
 print "We will help you out when you make a wrong guess by telling you if the number you picked is bigger or smaller than the secret number."

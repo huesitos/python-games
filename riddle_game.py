@@ -1,7 +1,12 @@
 from riddles_list import riddles
 from random import randint
 
-print "Hello there! Let's play a game!"
+print "What's your name?"
+
+name = raw_input("> ");
+
+print "Hello", name
+print "Let's play a game!"
 print "In fact, let's play a riddle game!"
 print "The rules are simple, we will tell you a riddle and you have to guess the answer. Each time you answer correctly, you will win 10 coins! But if you get it wrong, you lose the same amount your money (don't worry, it's not real...). Every now and then you'll be prompted with the option of multiplying your bet up to 5 times. If you win, you earn more, but if you lose, you also lose more."
 print "You start with 10 coins for the first bet. The game ends when you run out of money, decide to quit, or we run out of riddles (we can't know them all). We will help you by giving  you three possible answers from which you can pick the correct one. Let's see how much you can make!\n"
