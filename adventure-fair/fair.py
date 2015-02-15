@@ -5,7 +5,9 @@ player = None
 STARTING_MONEY = 50
 
 Map.places = {
-	'entrance': Place(name="Fair Extravaganzza", greeting="You arrive at the entrance. "),
+	'entrance': Place(
+		greeting="You arrive at the entrance. "
+		),
 	'riddles': Riddles(),
 	'guess the number': GuessNumber(),
 	'monster exhibition': Exhibition()

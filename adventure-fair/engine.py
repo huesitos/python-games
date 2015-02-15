@@ -18,8 +18,10 @@ class Engine(object):
 	"""The Engine has the logic of the game"""
 	OPTIONS = "options"
 	QUIT = "quit"
-	WALK_AROUND = "walk around"
+	WALK = "walk around"
 	PLAY = "play"
+	MONEY = "check money"
+	WHERE = "where"
 
 	def __init__(self, place_map):
 		super(Engine, self).__init__()
@@ -46,22 +48,26 @@ class Engine(object):
 		player_input = raw_input("> ").strip().lower()
 
 		if player_input == OPTIONS:
-			options = [OPTIONS, QUIT]
+			options = [OPTIONS, QUIT, MONEY, WHERE]
 			if self.current_place is Attraction:
 				options.push(PLAY)
 			elif self.current_place is Exhibition:
-				options.push(WALK_AROUND)
+				options.push(WALK)
 			print self.place_map.keys().join(', ') + options.join(', ')
 		elif player_input == PLAY:
 			if self.current_place is Attraction:
 				self.current_place.play()
 			else:
 				player.say("There is nothing to play with here.")
-		elif player_input == WALK_AROUND:
+		elif player_input == WALK:
 			if self.current_place is Exhibition:
 				self.current_place.walkthrough()
 			else:
 				player.say("Not much to see around.")
+		elif player_input == MONEY:
+			player.say("I have %d in my pocket." % player.money)
+		elif player_input == WHERE:
+			print "You are at the %s." % Map.places(self.current_place).name
 		elif player_input == QUIT:
 			self.end()
 		elif player_input == self.current_place:
