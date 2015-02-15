@@ -51,8 +51,9 @@ while coins > 0 and riddles:
 		coins -= actual_bet
 
 if coins > 0:
-	print "That's as many riddles as I know! You won %d coins, you are rich now!" % coins
+	print "That's as many riddles as I know!"
+	print "Congragulations, %s! You won %d coins, you are rich now!" % (name, coins)
 elif coins < 0:
-	print "You not only lost all your money, now you owe me %d!" % coins
+	print "What a shame %s! You not only lost all your money, now you owe me %d!" % (name, coins)
 else:
-	print "You lost all your money, I guess riddles aren't for ya."
+	print "Sorry, %s. You lost all your money, I guess riddles aren't for ya." % (name)

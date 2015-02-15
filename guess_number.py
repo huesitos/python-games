@@ -38,6 +38,6 @@ while playing:
 	again = raw_input("Do you want to play again? (y or n) ")
 
 	if again == "n":
-		print "You won %d times!" % (victories)
+		print "Congratulations, %s! You won %d times!" % (name, victories)
 		print "Have a good day!"
 		playing = False
