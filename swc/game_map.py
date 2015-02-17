@@ -6,7 +6,7 @@ class Place(object):
 		self.greeting = greeting
 		self.farewell = farewell
 
-	def enter(self):
+	def go(self):
 		print self.name
 		print '-' * len(self.name)
 		print self.greeting
@@ -24,13 +24,13 @@ class Exhibition(Place):
 	def walkthrough(self):
 		print walkthrough
 
-	def enter(self, player):
+	def enter(self):
+		print "You approach the lady selling tickets. She asks you for $%d for one ticket." % self.price
 		if player.money == self.price:
 			player.pay(self.price)
-			super()
 			self.walkthrough()
 		else:
-			print "I can't enter '%s'. I need $%d for the ticket." % (self.name, self.price))
+			print "You don't have enough money to buy it."
 
 class Attraction(Place):
 	"""An Attraction is a game which the player can participate in and win money."""

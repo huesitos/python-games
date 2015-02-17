@@ -18,7 +18,7 @@ def welcome():
 Map.places = {
 	'entrance': Place(
 		name = "Seven Wonders Circus",
-		greeting="You are at the entrace of the circus. By your left there is an old man smoking his pipe, sitting in front of a small stand that has a sign that reads \"Mr. D's Riddles\". By your left is another small stand with a sign that reads \"Alice's Secret Number\". There is a little girl stading near it, looking at you and smiling. In front of you, but further away, is the tent where the \"First Wonder - Strange Create of the East Exhibition\" is being held.",
+		greeting="You are at the entrace of the circus. The circus is moderately crowded. By your left there is an old man smoking his pipe, sitting in front of a small stand that has a sign that reads \"Mr. D's Riddles\". By your left is another small stand with a sign that reads \"Alice's Secret Number\". There is a little girl stading near it, looking at you and smiling. In front of you, but further away, is the tent where the \"First Wonder - Strange Create of the East Exhibition\" is being held.",
 		farewell="You leave the circus and head towards your home."
 		),
 	'riddles': Riddles(
@@ -34,7 +34,7 @@ Map.places = {
 	'monster exhibition': Exhibition(
 		name = "First Wonder - Strange Create of the East",
 		greeting = "You approach the big tent. A big crowd stands in front of the entrance.",
-		farewell = "You walk your way out of the crowd and leave.",
+		farewell = "You walk your way through the crowd and leave.",
 		walkthrough = "Interesting stuff.",
 		price = 500
 		)

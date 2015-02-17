@@ -14,7 +14,6 @@ class Engine(object):
 	"""The Engine has the logic of the game"""
 	OPTIONS = "options"
 	QUIT = "quit"
-	WALK = "walk around"
 	PLAY = "play"
 	MONEY = "check money"
 	WHERE = "where"
@@ -47,11 +46,6 @@ class Engine(object):
 				self.current_place.play()
 			else:
 				print "There is nothing to play with here."
-		elif player_input == WALK:
-			if self.current_place is Exhibition:
-				self.current_place.walkthrough()
-			else:
-				print "Not much to see around here."
 		elif player_input == MONEY:
 			print "I have %d in my pocket." % player.money
 		elif player_input == WHERE:
