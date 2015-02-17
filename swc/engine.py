@@ -1,8 +1,7 @@
-class Player(object):
-	"""Player class contains the name of the player and the money earned"""
+class Player(Character):
+	"""Player class contains a record of the money the player has."""
 	def __init__(self, name, money):
-		super(Player, self).__init__()
-		self.name = name
+		super(Player, self).__init__(name)
 		self.money = money
 
 	def pay(price):
@@ -10,9 +9,6 @@ class Player(object):
 
 	def earn(price):
 		self.money += price
-	
-	def say(say):
-		print "%s: %s" % (self.name, say)
 
 class Engine(object):
 	"""The Engine has the logic of the game"""
@@ -28,15 +24,7 @@ class Engine(object):
 		self.place_map = place_map
 
 	def intro(self):
-		print "%s Adventure at the fair %s" % ("*" * 20, "*" * 20)
-
-		name = raw_input("What is your name? ")
-		player = Player(name, STARTING_MONEY)
-
-		print "\nWelcome to the 'Adventure at the fair' text based game, %s." % (self.player.name)
-		print "Instructions and overview"
-
-		print "*" * 63
+		print "Story intro"
 
 	def end(self):
 		self.current_place.leave()
@@ -58,20 +46,20 @@ class Engine(object):
 			if self.current_place is Attraction:
 				self.current_place.play()
 			else:
-				player.say("There is nothing to play with here.")
+				print "There is nothing to play with here."
 		elif player_input == WALK:
 			if self.current_place is Exhibition:
 				self.current_place.walkthrough()
 			else:
-				player.say("Not much to see around.")
+				print "Not much to see around here."
 		elif player_input == MONEY:
-			player.say("I have %d in my pocket." % player.money)
+			print "I have %d in my pocket." % player.money
 		elif player_input == WHERE:
 			print "You are at the %s." % Map.places(self.current_place).name
 		elif player_input == QUIT:
 			self.end()
 		elif player_input == self.current_place:
-			player.say("I am already here...")
+			print "I am already here..."
 		elif player_input in self.place_map:
 			current_place.leave()
 			current_place = self.place_map.next_place(next_place)

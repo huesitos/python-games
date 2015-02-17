@@ -7,6 +7,8 @@ class Place(object):
 		self.farewell = farewell
 
 	def enter(self):
+		print self.name
+		print '-' * len(self.name)
 		print self.greeting
 
 	def leave(self):
@@ -28,7 +30,7 @@ class Exhibition(Place):
 			super()
 			self.walkthrough()
 		else:
-			print player.say("I can't enter '%s'. I need $%d for the ticket." % (self.name, self.price))
+			print "I can't enter '%s'. I need $%d for the ticket." % (self.name, self.price))
 
 class Attraction(Place):
 	"""An Attraction is a game which the player can participate in and win money."""
