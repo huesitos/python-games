@@ -1,41 +1,37 @@
 from game_map import *
 from engine import *
 
-player = None
-STARTING_MONEY = 50
-
 def welcome():
 	print "%s Seven Wonders Circus %s" % ("*" * 20, "*" * 20)
-	player = Player(STARTING_MONEY)
 
 	print "\nWelcome to the 'Seven Wonders Circus' text based game."
 	print "Instructions and overview"
-	print "Press any key to start the game."
+	print "Press ENTER to start the game."
 
 	print "*" * 63
 	raw_input()
 
 Map.places = {
 	'entrance': Place(
-		name = "Seven Wonders Circus",
+		name = "Seven Wonders Circus Entrance",
 		greeting="You are at the entrace of the circus. The circus is moderately crowded. By your left there is an old man smoking his pipe, sitting in front of a small stand that has a sign that reads \"Mr. D's Riddles\". By your left is another small stand with a sign that reads \"Alice's Secret Number\". There is a little girl stading near it, looking at you and smiling. In front of you, but further away, is the tent where the \"First Wonder - Strange Create of the East Exhibition\" is being held.",
-		farewell="You leave the circus and head towards your home."
+		farewell="You leave the entrance.\n"
 		),
 	'riddles': Riddles(
 		name = "Mr. D's Riddles",
 		greeting = "You approach the stand. The old man stops smoking and stares at you. \n\"If you didn't come here just to stare, then we can play a game of riddles. The bet is $10, if you guess the riddle, I'll give you double that. If you don't, I keep them.\"",
-		farewell = "You start walking away. The old man goes back to smoking his pipe in silence."
+		farewell = "You start walking away. The old man goes back to smoking his pipe in silence.\n"
 		),
 	'guess the number': GuessNumber(
 		name = "Alice's Secret Number",
 		greeting = "You approach the stand. The little girl standing in front of it waves at you. \n\"Hello there! Let's play a game. I will think of a number from 1-100 and you have to guess it! You will have at much 7 tries, and I will help you along the way! To play you pay $2. If you win, you'll get $4, if you lose, I'll keep the $2. So, I hope you lose a lot! Want to play?\"",
-		farewell = "You start walking away. The little girl follows you with her eyes and a big smile on her face."
+		farewell = "You start walking away. The little girl follows you with her eyes and a big smile on her face.\n"
 		),
-	'monster exhibition': Exhibition(
+	'first wonder exhibition': Exhibition(
 		name = "First Wonder - Strange Create of the East",
 		greeting = "You approach the big tent. A big crowd stands in front of the entrance.",
 		farewell = "You walk your way through the crowd and leave.",
-		walkthrough = "Interesting stuff.",
+		walkthrough = "Interesting stuff.\n",
 		price = 500
 		)
 }

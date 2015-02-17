@@ -16,16 +16,16 @@ class Place(object):
 
 class Exhibition(Place):
 	"""An Exhibition is a place in which the player spends money to see interesting showings"""
-	def __init__(self, name, price, greeting, farewell, walkthrough):
-		super(Exhibition, self).__init__()
+	def __init__(self, name, greeting, farewell, price, walkthrough):
+		super(Exhibition, self).__init__(name, greeting, farewell)
 		self.price = price
 		self.walkthrough = walkthrough
 
 	def walkthrough(self):
 		print walkthrough
 
-	def enter(self):
-		print "You approach the lady selling tickets. She asks you for $%d for one ticket." % self.price
+	def enter(self, player):
+		print "You approach the person selling tickets. She asks you for $%d for one ticket." % self.price
 		if player.money == self.price:
 			player.pay(self.price)
 			self.walkthrough()
@@ -57,7 +57,3 @@ class Map(object):
 	def __init__(self, start_place):
 		super(Map, self).__init__()
 		self.start_place = start_place
-
-	def move_place(self, place_name):
-		return Map.places[place_name]
-		
