@@ -8,15 +8,15 @@ class Player(object):
 		super(Player, self).__init__()
 		self.money = money
 
-	def pay(price):
+	def pay(self, price):
 		self.money -= price
 
-	def earn(price):
+	def receive(self, price):
 		self.money += price
 
 class Engine(object):
 	"""The Engine has the logic of the game"""
-	OPTIONS = "options"
+	HELP = "help"
 	QUIT = "quit"
 	PLAY = "play"
 	MONEY = "check money"
@@ -38,16 +38,17 @@ class Engine(object):
 	def navigate(self):
 		player_input = raw_input("> ").strip().lower()
 
-		if player_input == Engine.OPTIONS:
-			options = [Engine.OPTIONS, Engine.QUIT, Engine.MONEY, Engine.WHERE]
-			if isinstance(Map.places[self.current_place], Attraction):
+		if player_input == Engine.HELP:
+			options = [Engine.QUIT, Engine.MONEY, Engine.WHERE]
+			if isinstance(Map.places[self.current_place], Game):
 				options.append(Engine.PLAY)
 			if isinstance(Map.places[self.current_place], Exhibition):
 				options.append(Engine.ENTER)
 			print "%s, %s" % (', '.join(Map.places.keys()), ', '.join(options))
 		elif player_input == Engine.PLAY:
-			if isinstance(Map.places[self.current_place], Attraction):
-				Map.places[self.current_place].play()
+			if isinstance(Map.places[self.current_place], Game):
+				Map.places[self.current_place].play(self.player)
+				print "You now have %d in your pocket." % self.player.money
 			else:
 				print "There is nothing to play with here."
 		elif player_input == Engine.ENTER:
