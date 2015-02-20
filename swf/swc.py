@@ -2,9 +2,9 @@ from game_map import *
 from engine import *
 
 def welcome():
-	print "%s Seven Wonders Circus %s" % ("*" * 20, "*" * 20)
+	print "%s Seven Wonders Fair %s" % ("*" * 20, "*" * 20)
 
-	print "\nWelcome to the 'Seven Wonders Circus' text based game."
+	print "\nWelcome to the 'Seven Wonders Fair' text based game."
 	print "Instructions and overview"
 	print "Press ENTER to start the game."
 
@@ -13,8 +13,8 @@ def welcome():
 
 Map.places = {
 	'entrance': Place(
-		name = "Seven Wonders Circus Entrance",
-		greeting="You are at the entrace of the circus. The circus is moderately crowded. By your left there is an old man smoking his pipe, sitting in front of a small stand that has a sign that reads \"Mr. D's Riddles\". By your left is another small stand with a sign that reads \"Alice's Secret Number\". There is a little girl stading near it, looking at you and smiling. In front of you, but further away, is the tent where the \"First Wonder - Strange Create of the East Exhibition\" is being held.",
+		name = "Seven Wonders Fair Entrance",
+		greeting="You are at the entrace of the fair. The fair is moderately crowded. By your left there is an old man smoking his pipe, sitting in front of a small stand that has a sign that reads \"Mr. D's Riddles\". By your left is another small stand with a sign that reads \"Alice's Secret Number\". There is a little girl stading near it, looking at you and smiling. In front of you, but further away, is the tent where the \"First Wonder - Strange Create of the East Exhibition\" is being held.",
 		farewell="You leave the entrance.\n"
 		),
 	'riddles': Riddles(
