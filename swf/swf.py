@@ -4,8 +4,8 @@ from engine import *
 def welcome():
 	print "%s Seven Wonders Fair %s" % ("*" * 20, "*" * 20)
 
-	print "\nWelcome to the 'Seven Wonders Fair' text based game."
-	print "Instructions and overview"
+	print "\nWelcome to the 'Seven Wonders Fair' text based game.\n"
+	print "This is a text based game where you will be able to explore the different games and exhibitions at the 'Seven Wonders Fair'. You travel around by writing the name of the place you want to go to or the action you want to do. To check what places or actions you can do, you can type the command 'help' and press enter. A list of all the actions and places will be printed on screen.\n"
 	print "Press ENTER to start the game.\n"
 	raw_input("*" * 63)
 
@@ -29,14 +29,12 @@ Map.places = {
 		name = "First Wonder - Strange Create of the East",
 		greeting = "You approach the big tent. A big crowd stands in front of the entrance.",
 		farewell = "You walk your way through the crowd and leave.",
-		walkthrough = "Interesting stuff.\n",
-		price = 500
+		walkthrough = "\nThe exhibition was astonishing. Never in your live had you seen a beast like that.",
+		price = 300
 		)
 }
 
 place_map = Map('entrance')
 a_game = Engine(place_map)
 welcome()
-
 a_game.intro()
-a_game.play()

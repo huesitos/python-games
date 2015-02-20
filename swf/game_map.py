@@ -23,15 +23,17 @@ class Exhibition(Place):
 		super(Exhibition, self).__init__(name, greeting, farewell)
 		self.price = price
 		self.walkthrough = walkthrough
+		self.visited = False
 
-	def walkthrough(self):
-		print walkthrough
+	def start_walkthrough(self):
+		self.visited = True
+		print self.walkthrough
 
 	def enter(self, player):
-		print "You approach the person selling tickets. She asks you for $%d for one ticket." % self.price
-		if player.money == self.price:
+		print "You approach the person selling tickets. She asks for $%d for one ticket." % self.price
+		if player.money >= self.price:
 			player.pay(self.price)
-			self.walkthrough()
+			self.start_walkthrough()
 		else:
 			print "You don't have enough money to buy it."
 
@@ -74,14 +76,14 @@ class Riddles(Game):
 			print "Nope. The correct answer is %s. I'll have my %d, please." % (answer, Riddles.BET)
 			player.pay(Riddles.BET)
 
-		again = raw_input("\n\"Would you like to play again? (y or n): \"")
+		again = raw_input("\n\"Would you like to play again? (y or n):\" ")
 		if again == "y":
 			self.play(player)
 		
 class GuessNumber(Game):
 	"""GuessNumber is a game where the player can try to guess a secret number and win money."""
 	BET = 5
-	MAX_TRIES = 7
+	MAX_TRIES = 6
 	def __init__(self, name, greeting, farewell):
 		super(GuessNumber, self).__init__(name, greeting, farewell)
 
