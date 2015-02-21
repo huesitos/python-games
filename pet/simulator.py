@@ -10,10 +10,13 @@ class Engine(object):
 	def __init__(self, pet_name):
 		super(Engine, self).__init__()
 		self.pet = Pet(pet_name)
-		self.commands = {"feed": self.pet.eat, "sleep": self.pet.sleep, "walk pet": self.pet.take_walk, "bath": self.pet.bath, "play": self.pet.play, "train": self.pet.train, "do trick": self.pet.do_trick, "pet": self.pet.pet, "hepl": self.help}
+		self.commands = {"feed": self.pet.eat, "sleep": self.pet.sleep, "walk pet": self.pet.take_walk, "bath": self.pet.bath, "play": self.pet.play, "train": self.pet.train, "do trick": self.pet.do_trick, "pet": self.pet.pet, "help": self.help}
+		self.commands_help = {"feed": "feed your pet until it's full.", "sleep": "put pet to sleep until it is rested.", "walk pet": "walk your pet when it wants to go.", "bath": "clean your pet.", "play": "play with your pet and build a good relationship with it.", "train": "train your pet so it learns new skills.", "do trick": "order your pet to do a learned trick.", "pet": "pet your pet and build a good relationship with it."}
 
 	def help(self):
-		print "List of commands"
+		print "List of commands:"
+		for command in self.commands_help.items():
+			print "\"%s\": %s" % (command[0], command[1])
 
 	def passage_of_time(self):
 		prev_age = self.pet.age
@@ -42,6 +45,7 @@ class Engine(object):
 				self.commands[p_input]()
 				if p_input != "help":
 					self.passage_of_time()
+
 def start():
 	print "Welcome to pet simulator!"
 	print "How to play:..."
