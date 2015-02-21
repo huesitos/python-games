@@ -7,28 +7,27 @@ FULL = CLEAN = POOP = RESTED = 10
 
 def play_dead(name):
 	print "%s drops to the ground and plays dead." % name
-play_dead = ['play dead', 20, play_dead]
+play_dead = ('play dead', 20, play_dead)
 
 def lay_down(name):
 	print "%s lays down." % name
-lay_down = ['lay down', 10, lay_down]
+lay_down = ('lay down', 10, lay_down)
 
 def shake_hand(name):
 	print "%s shakes paw with you." % name
-greet = ['greet', 10, shake_hand]
+greet = ('greet', 10, shake_hand)
 
 def sit(name):
 	print "%s sits." % name
-sit = ['sit', 5, sit]
+sit = ('sit', 5, sit)
 
-skill_set = [sit, greet, lay_down, play_dead]
+skill_set = {'sit': sit, 'greet': greet, 'lay down': lay_down, 'play dead': play_dead}
 
 class Pet(object):
 	"""A Pet is an animal that the player has to take care of."""
 	def __init__(self, name):
 		super(Pet, self).__init__()
 		self.name = name
-		self.asleep = False
 		self.age = 0.0
 		self.energy = RESTED
 		self.stuff_in_belly = FULL # it is full
@@ -125,9 +124,9 @@ class Pet(object):
 	# checks if the skill level is enough to learn a new trick
 	def learned_skill(self):
 		for skill in skill_set:
-			if self.skill_level == skill[1]:
-				self.skills[skill[0]] = skill[2]
-				print "%s learned %s!" % (self.name, skill[0])
+			if self.skill_level == skill_set[skill][1]:
+				self.skills[skill_set[skill][0]] = skill_set[skill][2]
+				print "%s learned %s!" % (self.name, skill)
 
 	# checks the state of the pet and informs the owner
 	def check_state(self):
