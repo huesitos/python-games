@@ -64,9 +64,9 @@ class Engine(object):
 				data = data.split(';')
 				for a in data:
 					a = a.split(':')
-					if a[0] != "name" and a[0] != "skills":
+					if a[0] not in ["name", "skills", 'type']:
 						self.pet.attribs[a[0]] = float(a[1]) 
-					elif a[0] == "name":
+					elif a[0] in ["name", "type"]:
 						self.pet.attribs[a[0]] = a[1]
 					else:
 						skills = a[1]
@@ -76,27 +76,39 @@ class Engine(object):
 								self.pet.attribs[a[0]] = skill_set[skill][2]
 			print "Game loaded sucessfully."
 			self.pet.check_state()
+			return True
 		except:
 			print "No game found for the pet \"%s\"." % name
-			print "Starting a new game..."
+			return False
 
 def start():
-	print "Welcome to pet simulator!"
-	print "How to play:..."
-	print "-" * 50
-
+	start = False
 	print "For a new game, type 'n'. To load a game, type the name of your pet."
-	p_input = raw_input("> ")
-	if p_input == "n":
-		print "\nGive your pet a name"
-		name = raw_input("> ")
-		print "You receive a wonderfull pet..."
-		pet = Pet(name)
-		game = Engine(pet)
-	else:
-		pet = Pet(p_input)
-		game = Engine(pet)
-		game.load(p_input.strip())
-	game.play()
 
-start()
+	while not start:
+		p_input = raw_input("> ")
+		if p_input == "n":
+			print "\nWhat kind of pet do you want, cat or dog?"
+			pet_type = raw_input("> ")
+			print "\nGive your pet a name"
+			name = raw_input("> ")
+			print "You receive a wonderfull newborn "
+			pet = Pet(name, pet_type)
+			game = Engine(pet)
+			start = True
+		else:
+			pet = Pet(p_input, '')
+			game = Engine(pet)
+			start = game.load(p_input.strip())
+
+	if start:
+		game.play()
+
+def intro():
+	print "Welcome to pet simulator!"
+	print "In this game you will receive a pet, and  you'll have to take care of it so it stays healthy. Prompts with the status of your pet will appear to indicate you what your pet needs at the moment."
+	print "Whenever you don't know what to do next, type the command 'help'. If you have to go, you can save your game using the command 'save'. You can load the game by typing the name of your pet. Whenever you want to exit the game, type 'quit'."
+	print "-" * 40
+	start()
+
+intro()
