@@ -25,9 +25,9 @@ skill_set = {'sit': sit, 'greet': greet, 'lay down': lay_down, 'play dead': play
 
 class Pet(object):
 	"""A Pet is an animal that the player has to take care of."""
-	def __init__(self, name):
+	def __init__(self, name, pet_type):
 		super(Pet, self).__init__()
-		self.attribs = {'name': name, 'age': 0.0, 'energy': RESTED, 'stuff_in_belly': FULL, 'stuff_in_intestine': 0, 'hygine': CLEAN, 'skill_level': 0, 'skills': {}, 'loyalty': 0}
+		self.attribs = {'name': name, 'age': 0.0, 'energy': RESTED, 'stuff_in_belly': FULL, 'stuff_in_intestine': 0, 'hygine': CLEAN, 'skill_level': 0, 'skills': {}, 'loyalty': 0, 'type': pet_type}
 
 	# status check functions
 	def hungry(self):
@@ -126,7 +126,7 @@ class Pet(object):
 			print "%s is hungry..." % self.attribs["name"]
 		elif self.attribs["stuff_in_belly"] < 3 and self.attribs["stuff_in_belly"] > 0:
 			if self.attribs["loyalty"] <= UNLOYAL:
-				print "%s ran way. You should take better care of your pet." % self.attribs["name"]
+				print "%s ran way. You should take better care of your pet." (% self.attribs["name"], self.attribs["type"])
 				exit(1)
 			else:
 				print "%s is starving." % self.attribs["name"]
@@ -151,7 +151,7 @@ class Pet(object):
 			print "%s is tired. Put it to sleep." % self.attribs["name"]
 		elif self.attribs["energy"] == 1:
 			if self.attribs["loyalty"] <= UNLOYAL:
-				print "%s ran way. You should take better care of your pet." % self.attribs["name"]
+				print "%s ran way. You should take better care of your pet." % (self.attribs["name"], self.attribs["type"])
 				exit(1)
 			else:
 				print "%s is starving." % self.attribs["name"]
