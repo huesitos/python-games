@@ -90,9 +90,11 @@ def start():
 		if p_input == "n":
 			print "\nWhat kind of pet do you want, cat or dog?"
 			pet_type = raw_input("> ")
+
 			print "\nGive your pet a name"
 			name = raw_input("> ")
-			print "You receive a wonderfull newborn "
+			
+			print "You receive a wonderfull newborn %s. It's name will be %s. Take good care of it!" % (pet_type, name)
 			pet = Pet(name, pet_type)
 			game = Engine(pet)
 			start = True
